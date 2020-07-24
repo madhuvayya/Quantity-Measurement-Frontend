@@ -1,6 +1,6 @@
 $headerTextColor : #000000;
 $greetingTextColor:  #FFFFFF;
-$greetingBackGroundColor:L#446DFF;
+$greetingBackGroundColor: #446DFF;
 
 body {
     font-family:'Lato';
@@ -35,6 +35,5 @@ body {
         font-size: 25px ;
         color: $greetingTextColor;
         text-transform: capitalize;
-        opacity: 1;
     }
 }
