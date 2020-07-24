@@ -37,3 +37,40 @@ body {
         text-transform: capitalize;
     }
 }
+
+.quantities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #F5F6FA 0% 0% no-repeat padding-box;
+    height: 80%;
+    .type {
+        margin-top: 30px;
+        width: 61%;
+        align-self: center;
+        div {
+            text-align:left ;
+        }     
+    }
+}
+
+.quantities {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: row-wrap;
+    justify-content: space-around;
+    width: 70%;
+    align-self: center;
+    .unit {
+        display: flex;
+        flex-direction: column;
+        width: 173px;
+        height: 137px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        img {
+            width: 11.61px;
+            height: 45.75px;
+        }
+    }
+}
