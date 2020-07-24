@@ -1,3 +1,5 @@
+$textColor : #000000;
+
 body {
     font-family:'Lato';
 }
@@ -8,18 +10,14 @@ body {
     align-items: center;
     height: 40px;
     background-color: #FFFFFF;
+    color: $textColor;
+    letter-spacing: 0px;
+    text-align: left;
+    opacity: 1;
     .quanment {
-        text-align: left;
         font-size: 21px;
-        letter-spacing: 0px;
-        color: #000000;
-        opacity: 1;
     }
     .history {
-        text-align: left;
         font-size: 15px;
-        letter-spacing: 0px;
-        color: #000000;
-        opacity: 1;
     }
 }
