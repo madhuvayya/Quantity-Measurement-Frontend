@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    background-color: #FFFFFF;
+    .quanment {
+        text-align: left;
+        font-size: 21px;
+        letter-spacing: 0px;
+        color: #000000;
+        opacity: 1;
+    }
+    p {
+        text-align: left;
+        font-size: 12px;
+        letter-spacing: 0px;
+        color: #000000;
+        opacity: 1;
+    }
+}
