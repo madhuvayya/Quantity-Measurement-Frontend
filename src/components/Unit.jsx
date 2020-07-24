@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Unit extends Component {
     render() {
-        return <div class='unit'>
-            <img src='' alt='unit-image'/>
+        return <div className='unit' id={this.props.unitType}>
+            <div></div>
             <div>{this.props.unitType}</div>
             </div>
     }
