@@ -1,9 +1,9 @@
-$textColor : #000000;
+$headerTextColor : #000000;
+$greetingTextColor:  #FFFFFF;
+$greetingBackGroundColor:L#446DFF;
 
 body {
     font-family:'Lato';
-    letter-spacing: 0px;
-    opacity: 1;
 }
 
 .header {
@@ -12,8 +12,10 @@ body {
     align-items: center;
     height: 40px;
     background-color: #FFFFFF;
-    color: $textColor;
+    color: $headerTextColor;
+    letter-spacing: 0px;
     text-align: left;
+    opacity: 1;
     .quanment {
         font-size: 21px;
     }
@@ -24,14 +26,15 @@ body {
 
 .greeting {
     height: 70px;
-    background:#446DFF;
+    background: $greetingBackGroundColor;
     display: flex;
     justify-content: center;
     align-items: center;
     p {
         text-align: left;
-        font-size:25px ;
-        color: #FFFFFF;
+        font-size: 25px ;
+        color: $greetingTextColor;
         text-transform: capitalize;
+        opacity: 1;
     }
 }
