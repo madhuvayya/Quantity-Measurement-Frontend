@@ -109,3 +109,28 @@ body {
     color: #7224FF;
 }
 
+.unitValues {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-self: center;
+    justify-content: space-around;
+    .unitValue {
+        width: 330px;
+        .fromTo {
+            height: 40px;
+        }
+        .value {
+            height: 40px;
+            background-color: #FFFFFF;
+            border: 1px solid #E7DCFE;
+            width: 323px;
+        }
+        .sub-units {
+            height: 40px;
+            background-color: #FFFFFF;
+            border: 1px solid #E7DCFE;
+        }
+    }
+}

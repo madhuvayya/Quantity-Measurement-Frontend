@@ -4,8 +4,8 @@ class UnitValue extends Component {
     render(){
         return (
             <div className='unitValue'>
-                From
-                <div className='value'>value</div>
+                <div className='fromTo'>From</div>
+                <input className='value' />
                 <div className='sub-units'>Units</div>
             </div>
         )
