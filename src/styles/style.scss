@@ -117,7 +117,7 @@ body {
     align-self: center;
     justify-content: space-around;
     .unitValue {
-        width: 330px;
+        width: 350px;
         .fromTo {
             height: 40px;
         }
@@ -125,10 +125,11 @@ body {
             height: 40px;
             background-color: #FFFFFF;
             border: 1px solid #E7DCFE;
-            width: 323px;
+            width: 100%;
         }
         .sub-units {
             height: 40px;
+            width: 100%;
             background-color: #FFFFFF;
             border: 1px solid #E7DCFE;
         }

@@ -4,9 +4,11 @@ class UnitValue extends Component {
     render(){
         return (
             <div className='unitValue'>
-                <div className='fromTo'>From</div>
-                <input className='value' />
-                <div className='sub-units'>Units</div>
+                <div>{this.props.unitType}</div>
+                <input className='value' />            
+                <select className='sub-units'>
+                    {this.props.units.map(unit => <option value={unit}>{unit}</option>)}
+                </select>
             </div>
         )
     }

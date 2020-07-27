@@ -3,6 +3,14 @@ import Unit from './Unit';
 import UnitValue from './UnitValue';
 
 class QuantitiesContainer extends Component { 
+    constructor(props){
+        super(props);
+        this.state = {
+            currentUnit: this.props.quantities[0],
+            currentSubUnits: this.props.quantities[0].subUnits
+        }
+    }
+
     render() {
         const units = [ 'Length','Temparature','Volume']  
         return (
@@ -11,11 +19,11 @@ class QuantitiesContainer extends Component {
                     <div>CHOOSE TYPE</div>
                 </div>
                 <div className='quantities'>
-                    {units.map( unit => <Unit unitType={unit} />)}    
+                    {this.props.quantities.map( unit => <Unit unitType={unit.mainUnit} />)}    
                 </div>
                 <div className='unitValues'>
-                    <UnitValue unitType='Length'/>
-                    <UnitValue unitType='Length'/>
+                    <UnitValue unitType='From' units={this.state.currentSubUnits}/>
+                    <UnitValue unitType='To' units={this.state.currentSubUnits}/>
                 </div>
             </div>
         )
