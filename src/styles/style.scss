@@ -62,14 +62,15 @@ body {
     width: 70%;
     align-self: center;
     .unit {
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
         width: 173px;
         height: 137px;
-        justify-content: flex-end;
-        align-items: center;
+        // justify-content: flex-end;
+        // align-items: center;
         border-radius: 10px;
         padding: 10px;
+        border: transparent;
     }
 }
 

@@ -7,7 +7,7 @@ class UnitValue extends Component {
                 <div>{this.props.unitType}</div>
                 <input className='value' />            
                 <select className='sub-units'>
-                    {this.props.units.map(unit => <option value={unit}>{unit}</option>)}
+                    {this.props.units.map( (unit,index) => <option value={unit} key={index}>{unit}</option>)}
                 </select>
             </div>
         )

@@ -1,15 +1,15 @@
 {
     "units": [
         {
-            "mainUnit":"Length",
+            "type":"Length",
             "subUnits":["Inch","Feet"]
         },
         {
-            "mainUnit":"Temparature",
+            "type":"Temparature",
             "subUnits":["Celsius", "Fahrenheit"]
         },
         {
-            "mainUnit": "Volume",
+            "type": "Volume",
             "subUnits": ["Litres", "Milliliters", "Gallons"]
         }
     ]
