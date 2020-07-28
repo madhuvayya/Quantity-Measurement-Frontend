@@ -31,8 +31,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    p {
-        text-align: left;
+    div {
+        text-align: center;
         font-size: 25px ;
         color: $greetingTextColor;
         text-transform: capitalize;
@@ -44,7 +44,6 @@ body {
     flex-direction: column;
     justify-content: center;
     background: #F5F6FA 0% 0% no-repeat padding-box;
-    height: 80%;
     .type {
         margin-top: 30px;
         width: 61%;
@@ -62,12 +61,12 @@ body {
     width: 70%;
     align-self: center;
     .unit {
-        // display: flex;
-        // flex-direction: column;
-        width: 173px;
-        height: 137px;
-        // justify-content: flex-end;
-        // align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 180px;
+        height: 150px;
+        justify-content: flex-end;
+        align-items: center;
         border-radius: 10px;
         padding: 10px;
         border: transparent;
@@ -117,22 +116,92 @@ body {
     width: 70%;
     align-self: center;
     justify-content: space-around;
+}
+
+.unitValue {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .fromTo {
+        height: 40px;
+    }
+    .value {
+        height: 40px;
+        background-color: #FFFFFF;
+        
+        width: 100%;
+        input{
+            width:100%;
+            height:40px;
+            border: 1px solid #E7DCFE;
+        }
+    }
+    .sub-units {
+        margin-top: 1px;
+        height: 40px;
+        width: 100%;
+        background-color: #FFFFFF;
+        select{
+            width:100%;
+            height:40px;
+            border: 1px solid #E7DCFE;    
+        }
+    }
+}
+ 
+
+@media (max-width: 480px) { 
+    .greeting{
+        height: 80px;
+    }
+    .quantities {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 200px;
+    }
+    .unitValues {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        width: 100px;
+    }
+
+} 
+
+@media (max-width: 280px){ 
+    .quantities {
+        display: flex;
+        flex-direction: column;
+        .type{
+            margin-top: 30px;
+            width: 40%;
+            align-self: center;
+            div {
+                text-align:center ;
+            }
+        }    
+    }
+
     .unitValue {
-        width: 350px;
+        width: 50%;
         .fromTo {
-            height: 40px;
+            height: 5%;
         }
         .value {
             height: 40px;
             background-color: #FFFFFF;
             border: 1px solid #E7DCFE;
-            width: 100%;
+            width: 10%;
         }
         .sub-units {
+            width: 10%;
             height: 40px;
-            width: 100%;
             background-color: #FFFFFF;
             border: 1px solid #E7DCFE;
         }
     }
-}
+} 

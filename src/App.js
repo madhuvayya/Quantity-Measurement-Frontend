@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Greeting />
-      <QuantitiesContainer quantities={unitsdata.units}/>
+      <QuantitiesContainer units={unitsdata.units} />
     </div>
   );
 }

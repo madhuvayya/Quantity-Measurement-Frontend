@@ -2,7 +2,7 @@
     "units": [
         {
             "type":"Length",
-            "subUnits":["Inch","Feet"]
+            "subUnits":["Inch","Feet","Metre"]
         },
         {
             "type":"Temparature",

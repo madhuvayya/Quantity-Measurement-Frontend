@@ -5,10 +5,12 @@ class UnitValue extends Component {
         return (
             <div className='unitValue'>
                 <div>{this.props.unitType}</div>
-                <input className='value' />            
-                <select className='sub-units'>
+                <div className='value'><input /></div>
+                <div className='sub-units'>            
+                <select>
                     {this.props.units.map( (unit,index) => <option value={unit} key={index}>{unit}</option>)}
                 </select>
+                </div>
             </div>
         )
     }

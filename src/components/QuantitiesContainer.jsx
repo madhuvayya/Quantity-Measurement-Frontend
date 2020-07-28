@@ -6,7 +6,7 @@ class QuantitiesContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            currentUnit: this.props.quantities[0],
+            currentUnit: this.props.units[0]
         }
     }
 
@@ -23,7 +23,7 @@ class QuantitiesContainer extends Component {
                     <div>CHOOSE TYPE</div>
                 </div>
                 <div className='quantities'>
-                    {this.props.quantities.map( (mainUnit,index) => <Unit mainUnit={mainUnit} key={index} selectUnit={this.changeCurrentUnit}/>)}    
+                    {this.props.units.map( (mainUnit,index) => <Unit mainUnit={mainUnit} key={index} selectUnit={this.changeCurrentUnit}/>)}    
                 </div>
                 <div className='unitValues'>
                     <UnitValue unitType='From' units={this.state.currentUnit.subUnits} />
