@@ -60,6 +60,7 @@ body {
     justify-content: space-around;
     width: 70%;
     align-self: center;
+    text-transform: capitalize;
     .unit {
         display: flex;
         flex-direction: column;
@@ -73,40 +74,52 @@ body {
     }
 }
 
-#Length {
+#length {
     background: transparent url('../assets/scale.svg') 50% 50% no-repeat padding-box;
     background-color: #FFFFFF;  
 }
 
-#Temparature {
+#temperature {
     background: transparent url('../assets/thermometer.svg') 50% 50% no-repeat padding-box;
     background-color: #FFFFFF;  
 }
 
-#Volume {
+#volume {
     background: transparent url('../assets/beaker.svg') 50% 50% no-repeat padding-box;
     background-color: #FFFFFF;  
 }
 
-#Length:hover {
+#weight {
+    background: transparent url('../assets/weighing-scale.svg') 130% 130% no-repeat padding-box;
+    background-color: #FFFFFF;  
+}
+
+#length:hover {
     background: transparent url('../assets/colored-scale.svg') 50% 50% no-repeat padding-box;
     background-color: #EDFDF9;
     border-color: #0EC098;
     color: #0EC098;
 }
 
-#Temparature:hover {
+#temperature:hover {
     background: transparent url('../assets/colored-thermometer.svg') 50% 50% no-repeat padding-box;
     background-color: #FFEEF0;
     border-color: #FD5160;
     color:#FD5160 ;  
 }
 
-#Volume:hover, #Volume:focus {
+#volume:hover, #Volume:focus {
     background: transparent url('../assets/colored-beaker.svg') 50% 50% no-repeat padding-box;
     background-color: #E8DDFF;
     border-color: #7224FF;
     color: #7224FF;
+}
+
+#weight:hover {
+    background: transparent url('../assets/colored-weighing-scale.svg') 50% 50% no-repeat padding-box;
+    background-color: #f6f6db;
+    border-color: #faf605;
+    color:#838105 ;  
 }
 
 .unitValues {
