@@ -102,7 +102,7 @@ body {
     color:#FD5160 ;  
 }
 
-#Volume:hover {
+#Volume:hover, #Volume:focus {
     background: transparent url('../assets/colored-beaker.svg') 50% 50% no-repeat padding-box;
     background-color: #E8DDFF;
     border-color: #7224FF;
