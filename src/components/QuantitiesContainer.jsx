@@ -64,7 +64,6 @@ class QuantitiesContainer extends Component {
         const eventName = event.target.name;
         const eventValue = event.target.value;
         if(eventName === 'From'){
-            console.log("inside entered value if");
             this.getResponse(this.state.currentMainUnit,this.state.fromUnit,eventValue,this.state.toUnit)
                     .then(response => { 
                             this.setState({
@@ -73,12 +72,11 @@ class QuantitiesContainer extends Component {
                             })
                         });
         } else {
-            console.log("inside entered value else");
             this.getResponse(this.state.currentMainUnit,this.state.toUnit,eventValue,this.state.fromUnit)
                 .then(response => { 
                     this.setState({
                         toUnitValue:eventValue, 
-                        fromUnit:response
+                        fromUnitValue:response
                     })
                 });
         }      
@@ -96,7 +94,7 @@ class QuantitiesContainer extends Component {
                 })
             });
         } else {
-            this.getResponse(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.fromUnit)
+            this.getResponse(this.state.currentMainUnit,this.state.fromUnit,this.state.fromUnitValue,eventValue)
             .then(response => { 
                 this.setState({
                     toUnit:eventValue,
