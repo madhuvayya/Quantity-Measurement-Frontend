@@ -40,36 +40,46 @@ class QuantitiesContainer extends Component {
     changeCurrentUnit = (mainUnit) => {
         apiService.getSubUnits(mainUnit)
         .then( subUnitsData =>
-            this.setState({
-                currentMainUnit:mainUnit,
-                subUnits:subUnitsData,
-                fromUnit:subUnitsData[0],
-                toUnit:subUnitsData[1],
-                fromUnitValue:null,
-                toUnitValue:null 
-            })
+            this.getResponse(mainUnit,subUnitsData[0],1,subUnitsData[1])
+                .then(convertedValue => { 
+                    this.setState({
+                        currentMainUnit:mainUnit,
+                        subUnits:subUnitsData,
+                        fromUnit:subUnitsData[0],
+                        toUnit:subUnitsData[1],
+                        fromUnitValue:1,
+                        toUnitValue:convertedValue
+                    })
+                })
         )
+    }
+
+    getResponse = (mainUnit,fromUnit,fromUnitValue,toUnit) => {
+        return apiService.getConvertedValue(mainUnit,fromUnit,fromUnitValue,toUnit)
+            .then(response => { 
+                console.log(response);
+                return response })    
     }
     
     enteredValue = (event) => {
         const eventName = event.target.name;
         const eventValue = event.target.value;
         if(eventName === 'From'){
-            apiService.getConvertedValue(this.state.currentMainUnit,this.state.fromUnit,eventValue,this.state.toUnit)
-            .then(response =>
-                this.setState({
-                        fromUnitValue:eventValue,
-                        toUnitValue:response    
-                })
-            )
+            this.getResponse(this.state.currentMainUnit,this.state.fromUnit,eventValue,this.state.toUnit)
+                    .then(response => { 
+                            this.setState({
+                                fromUnitValue:eventValue,
+                                toUnitValue:response    
+                            })
+                        });
         } else {
-            apiService.getConvertedValue(this.state.currentMainUnit,this.state.toUnit,eventValue,this.state.fromUnit)
-            .then(response =>
-                this.setState({
+            this.getResponse(this.state.currentMainUnit,this.state.toUnit,eventValue,this.state.fromUnit)
+                .then(response => { 
+                    this.setState({
                         fromUnitValue:response,
                         toUnitValue:eventValue    
-                })
-            )
+                    })
+                });
         }      
     }
 
@@ -77,21 +87,21 @@ class QuantitiesContainer extends Component {
         const eventName = event.target.name;
         const eventValue = event.target.value;
         if(eventName === 'From'){
-            apiService.getConvertedValue(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.toUnit)
-            .then(response =>
+            this.getResponse(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.toUnit)
+            .then(response => { 
                 this.setState({
-                        fromUnit:eventValue,
-                        toUnitValue:response    
+                    fromUnit:eventValue,
+                    toUnitValue:response    
                 })
-            )
+            });
         } else {
-            apiService.getConvertedValue(this.state.currentMainUnit,this.state.fromUnit,this.state.fromUnitValue,eventValue)
-            .then(response =>
+            this.getResponse(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.toUnit)
+            .then(response => { 
                 this.setState({
-                        toUnit:eventValue,
-                        toUnitValue:response    
+                    toUnit:eventValue,
+                    toUnitValue:response    
                 })
-            )
+            });
         }
     } 
 
