@@ -10,10 +10,10 @@ class QuantitiesContainer extends Component {
             currentMainUnit: "",
             mainUnits:[],
             subUnits:[],
-            From:this.props.units[0].subUnits[0],
-            To:this.props.units[0].subUnits[0],
-            fromValue:0,
-            toValue:0
+            fromUnit:"",
+            toUnit:"",
+            fromUnitValue:0,
+            toUnitValue:0
         }
     }
 
@@ -22,11 +22,17 @@ class QuantitiesContainer extends Component {
         .then(mainUnitsData => {
             apiService.getSubUnits(mainUnitsData[0])
                 .then(subUnitsData => {
-                    this.setState({
-                        mainUnits: mainUnitsData,
-                        currentMainUnit:mainUnitsData[0],
-                        subUnits:subUnitsData
-                    })
+                    apiService.getConvertedValue(mainUnitsData[0],subUnitsData[0],1,subUnitsData[1])
+                        .then(convertedValue => {
+                            this.setState({
+                                mainUnits: mainUnitsData,
+                                currentMainUnit:mainUnitsData[0],
+                                subUnits:subUnitsData,
+                                fromUnit:subUnitsData[0],
+                                fromUnitValue:1,
+                                toUnitValue: convertedValue
+                            })
+                        })
                 })
         });
     }
@@ -35,17 +41,59 @@ class QuantitiesContainer extends Component {
         apiService.getSubUnits(mainUnit)
         .then( subUnitsData =>
             this.setState({
-                subUnits:subUnitsData 
+                currentMainUnit:mainUnit,
+                subUnits:subUnitsData,
+                fromUnit:subUnitsData[0],
+                toUnit:subUnitsData[1],
+                fromUnitValue:null,
+                toUnitValue:null 
             })
         )
-    } 
-
-    selectUnit = (event) => {
-        console.log([event.target.name] + ":" + event.target.value)
-        this.setState({
-            [event.target.name]:event.target.value
-        })
     }
+    
+    enteredValue = (event) => {
+        const eventName = event.target.name;
+        const eventValue = event.target.value;
+        if(eventName === 'From'){
+            apiService.getConvertedValue(this.state.currentMainUnit,this.state.fromUnit,eventValue,this.state.toUnit)
+            .then(response =>
+                this.setState({
+                        fromUnitValue:eventValue,
+                        toUnitValue:response    
+                })
+            )
+        } else {
+            apiService.getConvertedValue(this.state.currentMainUnit,this.state.toUnit,eventValue,this.state.fromUnit)
+            .then(response =>
+                this.setState({
+                        fromUnitValue:response,
+                        toUnitValue:eventValue    
+                })
+            )
+        }      
+    }
+
+    selectedUnit = (event) =>{
+        const eventName = event.target.name;
+        const eventValue = event.target.value;
+        if(eventName === 'From'){
+            apiService.getConvertedValue(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.toUnit)
+            .then(response =>
+                this.setState({
+                        fromUnit:eventValue,
+                        toUnitValue:response    
+                })
+            )
+        } else {
+            apiService.getConvertedValue(this.state.currentMainUnit,this.state.fromUnit,this.state.fromUnitValue,eventValue)
+            .then(response =>
+                this.setState({
+                        toUnit:eventValue,
+                        toUnitValue:response    
+                })
+            )
+        }
+    } 
 
     render() { 
         return (
@@ -54,11 +102,11 @@ class QuantitiesContainer extends Component {
                     <div>CHOOSE TYPE</div>
                 </div>
                 <div className='quantities'>
-                    {this.state.mainUnits.map( (mainUnit,index) => <Unit mainUnit={mainUnit} key={index} selectUnitType={this.changeCurrentUnit}/>)}    
+                    {this.state.mainUnits.map( mainUnit => <Unit mainUnit={mainUnit} key={mainUnit} selectUnitType={this.changeCurrentUnit}/>)}    
                 </div>
                 <div className='unitValues'>
-                    <UnitValue unitType='From' units={this.state.subUnits} change={this.selectUnit} fromValue={this.state.fromValue}/>
-                    <UnitValue unitType='To' units={this.state.subUnits}  change={this.selectUnit} fromValue={this.state.toValue}/>
+                    <UnitValue unitType='From' units={this.state.subUnits} changeUnit={this.selectedUnit} changeValue={this.enteredValue} selectedUnit={this.state.toUnit} value={this.state.fromUnitValue}/>
+                    <UnitValue unitType='To' units={this.state.subUnits}  changeUnit={this.selectedUnit} changeValue={this.enteredValue} selectedUnit={this.state.fromUnit} value={this.state.toUnitValue}/>
                 </div>
             </div>
         )

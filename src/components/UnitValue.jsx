@@ -1,18 +1,23 @@
 import React from 'react';
+import Unit from './Unit';
 
 function  UnitValue(props){
 
-    const handleChange = (event) => {
-        props.change(event);
+    const handleValueChange = (event) => {
+        props.changeValue(event);
+    }
+
+    const handleUnitsChange = (event) => {
+        props.changeUnit(event);
     }
 
     return (
         <div className='unitValue'>
             <div>{props.unitType}</div>
-            <div className='value' name={props.unitType} onChange={handleChange}><input type='' value={props.fromValue}></input></div>
+            <div className='unit-value'><input type="number"  name={props.unitType} value={props.value} onChange={handleValueChange}></input></div>
             <div className='sub-units'>            
-                <select name={props.unitType} onChange={handleChange}>
-                    {props.units.map( (unit,index) => <option value={unit} key={index}>{unit}</option>)}
+                <select name={props.unitType} onChange={handleUnitsChange}>
+                    {props.units.map(unit => <option value={unit} key={unit} disabled={ props.selectedUnit === unit ? true : false}>{unit}</option>)}
                 </select>
             </div>
         </div>

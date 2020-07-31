@@ -1,24 +1,45 @@
 import axios from 'axios'
 
 class ApiService {
-    constructor(){
-
-    }
     
-    getMainUnits = () => {
-        return axios.get("http://localhost:8080/quantity-measurement/measurements")
-        .then(response=> {
+    getMainUnits = async () => {
+        try {
+            const response = await axios.get("http://localhost:8080/quantity-measurement/measurements");
             return response.data;
-        })
-        .catch(err => console.log(err));
+        }
+        catch (err) {
+            return console.log(err);
+        }
     }    
 
-    getSubUnits = (mainUnit) => {
-        return axios.get("http://localhost:8080/quantity-measurement/measurements/"+mainUnit,{})
-        .then(response=> {
+    getSubUnits = async (mainUnit) => {
+        try {
+            const response = await axios.get("http://localhost:8080/quantity-measurement/measurements/" + mainUnit, {});
             return response.data;
-        })
-        .catch(err => console.log(err));
+        }
+        catch (err) {
+            return console.log(err);
+        }
+    }
+
+
+    getConvertedValue = async (mainUnit,fromUnit,fromUnitValue,toUnit) => {
+        console.log("mainUnit: "+mainUnit);
+        console.log("fromUnit: "+fromUnit);
+        console.log("fromUnitValue: "+fromUnitValue);
+        console.log(toUnit);
+        try {
+            const response = await axios.post("http://localhost:8080/quantity-measurement/measurements/" + mainUnit + "/convert", {
+                "firstUnit": fromUnit,
+                "firstUnitValue": fromUnitValue,
+                "secondUnit": toUnit
+            });
+            console.log("converted value:" + response.data);
+            return response.data;
+        }
+        catch (err) {
+            return console.log(err);
+        }
     }
 }
 

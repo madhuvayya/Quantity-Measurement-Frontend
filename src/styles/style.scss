@@ -90,7 +90,7 @@ body {
 }
 
 #weight {
-    background: transparent url('../assets/weighing-scale.svg') 130% 130% no-repeat padding-box;
+    background: transparent url('../assets/weighing-scale.svg') 50% 50% no-repeat padding-box;
     background-color: #FFFFFF;  
 }
 
@@ -108,7 +108,7 @@ body {
     color:#FD5160 ;  
 }
 
-#volume:hover, #Volume:focus {
+#volume:hover, #volume:focus {
     background: transparent url('../assets/colored-beaker.svg') 50% 50% no-repeat padding-box;
     background-color: #E8DDFF;
     border-color: #7224FF;
@@ -139,7 +139,7 @@ body {
     .fromTo {
         height: 40px;
     }
-    .value {
+    .unit-value {
         height: 40px;
         background-color: #FFFFFF;
         
@@ -204,7 +204,7 @@ body {
         .fromTo {
             height: 5%;
         }
-        .value {
+        .unit-value {
             height: 40px;
             background-color: #FFFFFF;
             border: 1px solid #E7DCFE;
