@@ -24,10 +24,11 @@ class ApiService {
 
 
     getConvertedValue = async (mainUnit,fromUnit,fromUnitValue,toUnit) => {
+        console.log("Inside api call");
         console.log("mainUnit: "+mainUnit);
         console.log("fromUnit: "+fromUnit);
         console.log("fromUnitValue: "+fromUnitValue);
-        console.log(toUnit);
+        console.log("toUnit: "+toUnit);
         try {
             const response = await axios.post("http://localhost:8080/quantity-measurement/measurements/" + mainUnit + "/convert", {
                 "firstUnit": fromUnit,

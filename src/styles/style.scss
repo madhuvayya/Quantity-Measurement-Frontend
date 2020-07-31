@@ -90,7 +90,7 @@ body {
 }
 
 #weight {
-    background: transparent url('../assets/weighing-scale.svg') 50% 50% no-repeat padding-box;
+    background: transparent url('../assets/weighing-scale.svg') 100% 100% no-repeat padding-box;
     background-color: #FFFFFF;  
 }
 
@@ -108,7 +108,7 @@ body {
     color:#FD5160 ;  
 }
 
-#volume:hover, #volume:focus {
+#volume:hover {
     background: transparent url('../assets/colored-beaker.svg') 50% 50% no-repeat padding-box;
     background-color: #E8DDFF;
     border-color: #7224FF;
@@ -141,9 +141,8 @@ body {
     }
     .unit-value {
         height: 40px;
-        background-color: #FFFFFF;
-        
-        width: 100%;
+        background-color: #FFFFFF;        
+        // width: 100%;
         input{
             width:100%;
             height:40px;
@@ -194,7 +193,7 @@ body {
             width: 40%;
             align-self: center;
             div {
-                text-align:center ;
+                text-align:center;
             }
         }    
     }

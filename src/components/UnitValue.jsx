@@ -1,5 +1,4 @@
 import React from 'react';
-import Unit from './Unit';
 
 function  UnitValue(props){
 

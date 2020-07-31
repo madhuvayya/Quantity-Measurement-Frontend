@@ -54,10 +54,9 @@ class QuantitiesContainer extends Component {
         )
     }
 
-    getResponse = (mainUnit,fromUnit,fromUnitValue,toUnit) => {
-        return apiService.getConvertedValue(mainUnit,fromUnit,fromUnitValue,toUnit)
+    getResponse = (mainUnit,fromSubUnit,fromSubUnitValue,toSubUnit) => {
+        return apiService.getConvertedValue(mainUnit,fromSubUnit,fromSubUnitValue,toSubUnit)
             .then(response => { 
-                console.log(response);
                 return response })    
     }
     
@@ -65,6 +64,7 @@ class QuantitiesContainer extends Component {
         const eventName = event.target.name;
         const eventValue = event.target.value;
         if(eventName === 'From'){
+            console.log("inside entered value if");
             this.getResponse(this.state.currentMainUnit,this.state.fromUnit,eventValue,this.state.toUnit)
                     .then(response => { 
                             this.setState({
@@ -73,11 +73,12 @@ class QuantitiesContainer extends Component {
                             })
                         });
         } else {
+            console.log("inside entered value else");
             this.getResponse(this.state.currentMainUnit,this.state.toUnit,eventValue,this.state.fromUnit)
                 .then(response => { 
                     this.setState({
-                        fromUnitValue:response,
-                        toUnitValue:eventValue    
+                        toUnitValue:eventValue, 
+                        fromUnit:response
                     })
                 });
         }      
@@ -95,7 +96,7 @@ class QuantitiesContainer extends Component {
                 })
             });
         } else {
-            this.getResponse(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.toUnit)
+            this.getResponse(this.state.currentMainUnit,eventValue,this.state.fromUnitValue,this.state.fromUnit)
             .then(response => { 
                 this.setState({
                     toUnit:eventValue,
