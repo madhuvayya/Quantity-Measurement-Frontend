@@ -57,20 +57,22 @@ body {
 .quantities {
     margin-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 70%;
     align-self: center;
-    text-transform: capitalize;
-    .unit {
-        display: flex;
-        flex-direction: column;
+    button {
         width: 180px;
         height: 150px;
-        justify-content: flex-end;
-        align-items: center;
-        border-radius: 10px;
         padding: 10px;
-        border: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        border-radius: 10px;
+        border:transparent;
+        text-transform: capitalize;
+        div {
+            font-size: large;
+        }
     }
 }
 
@@ -94,32 +96,32 @@ body {
     background-color: #FFFFFF;  
 }
 
-#length:hover {
+#length:hover, .active-length {
     background: transparent url('../assets/colored-scale.svg') 50% 50% no-repeat padding-box;
     background-color: #EDFDF9;
     border-color: #0EC098;
     color: #0EC098;
 }
 
-#temperature:hover {
+#temperature:hover, .active-temperature {
     background: transparent url('../assets/colored-thermometer.svg') 50% 50% no-repeat padding-box;
     background-color: #FFEEF0;
     border-color: #FD5160;
     color:#FD5160 ;  
 }
 
-#volume:hover {
+#volume:hover, .active-volume {
     background: transparent url('../assets/colored-beaker.svg') 50% 50% no-repeat padding-box;
     background-color: #E8DDFF;
     border-color: #7224FF;
     color: #7224FF;
 }
 
-#weight:hover {
+.active-weight ,#weight:hover {
     background: transparent url('../assets/colored-weighing-scale.svg') 50% 50% no-repeat padding-box;
     background-color: #f6f6db;
     border-color: #faf605;
-    color:#838105 ;  
+    color:#7a7805 ;  
 }
 
 .unitValues {
@@ -140,23 +142,19 @@ body {
         height: 40px;
     }
     .unit-value {
-        height: 40px;
         background-color: #FFFFFF;        
-        // width: 100%;
         input{
+            height: 40px;
             width:100%;
-            height:40px;
             border: 1px solid #E7DCFE;
         }
     }
     .sub-units {
-        margin-top: 1px;
-        height: 40px;
         width: 100%;
         background-color: #FFFFFF;
         select{
+            height: 40px;
             width:100%;
-            height:40px;
             border: 1px solid #E7DCFE;    
         }
     }

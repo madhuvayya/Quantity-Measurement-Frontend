@@ -30,6 +30,7 @@ class QuantitiesContainer extends Component {
                                 subUnits:subUnitsData,
                                 fromUnit:subUnitsData[0],
                                 fromUnitValue:1,
+                                toUnit:subUnitsData[1],
                                 toUnitValue: convertedValue
                             })
                         })
@@ -111,7 +112,7 @@ class QuantitiesContainer extends Component {
                     <div>CHOOSE TYPE</div>
                 </div>
                 <div className='quantities'>
-                    {this.state.mainUnits.map( mainUnit => <Unit mainUnit={mainUnit} key={mainUnit} selectUnitType={this.changeCurrentUnit}/>)}    
+                    {this.state.mainUnits.map( mainUnit => <Unit mainUnit={mainUnit} key={mainUnit} activeMainUnit={this.state.currentMainUnit} selectUnitType={this.changeCurrentUnit}/>)}    
                 </div>
                 <div className='unitValues'>
                     <UnitValue unitType='From' units={this.state.subUnits} changeUnit={this.selectedUnit} changeValue={this.enteredValue} selectedUnit={this.state.toUnit} value={this.state.fromUnitValue}/>
