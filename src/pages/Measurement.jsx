@@ -6,7 +6,7 @@ import QuantitiesContainer from '../components/QuantitiesContainer'
 function Measurement() {
   return (
     <>
-      <Header />
+      <Header navLinkName='History'/>
       <Greeting />
       <QuantitiesContainer />
     </>

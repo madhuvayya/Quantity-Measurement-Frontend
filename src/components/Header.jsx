@@ -5,7 +5,7 @@ class Header extends Component {
         return (
             <div className="header">
                 <a className="quanment">Quanment</a>
-                <a className="history">History</a>
+                <a className="history" href="/history">{this.props.navLinkName}</a>
             </div>
         ) 
     }

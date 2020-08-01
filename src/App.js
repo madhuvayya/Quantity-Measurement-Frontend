@@ -1,17 +1,16 @@
 import React from 'react';
-import Header from './components/Header';
-import Greeting from './components/Greeting'
-import QuantitiesContainer from './components/QuantitiesContainer'
-import Measurement from './pages/Measurement'
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import Measurement from './pages/Measurement.jsx'
+import History from './pages/History';
 
 function App() {
   return (
-    <div className="App">
-      {/* <Header />
-      <Greeting />
-      <QuantitiesContainer /> */}
-      <Measurement />
-    </div>
+    <Router>
+        <div className="App">
+          <Route exact path="/" component={Measurement} />
+       </div>
+        <Route path="/history" component={History} />
+    </Router>
   );
 }
 
