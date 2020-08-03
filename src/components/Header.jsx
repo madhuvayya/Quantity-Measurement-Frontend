@@ -4,7 +4,7 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
-                <a className="quanment">Quanment</a>
+                <a className="quanment" href="/">Quanment</a>
                 <a className="history" href="/history">{this.props.navLinkName}</a>
             </div>
         ) 

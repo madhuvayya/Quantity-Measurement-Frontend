@@ -6,9 +6,7 @@ import History from './pages/History';
 function App() {
   return (
     <Router>
-        <div className="App">
-          <Route exact path="/" component={Measurement} />
-       </div>
+        <Route exact path="/" component={Measurement} />
         <Route path="/history" component={History} />
     </Router>
   );

@@ -13,7 +13,7 @@ class QuantitiesContainer extends Component {
             fromUnit:"",
             toUnit:"",
             fromUnitValue:0,
-            toUnitValue:0
+            toUnitValue:0,
         }
     }
 
@@ -55,6 +55,10 @@ class QuantitiesContainer extends Component {
         )
     }
 
+    componentWillUnmount(){
+        localStorage.clear();
+     }
+
     getResponse = (mainUnit,fromSubUnit,fromSubUnitValue,toSubUnit) => {
         return apiService.getConvertedValue(mainUnit,fromSubUnit,fromSubUnitValue,toSubUnit)
             .then(response => { 
@@ -80,7 +84,7 @@ class QuantitiesContainer extends Component {
                         fromUnitValue:response
                     })
                 });
-        }      
+        }
     }
 
     selectedUnit = (event) =>{
