@@ -1,0 +1,14 @@
+.history-table {
+    position: fixed; /* or absolute */
+    margin: 0 25% 0;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.title {
+    text-align: center;
+}
+
+.no-data{
+    text-align: center;
+} 

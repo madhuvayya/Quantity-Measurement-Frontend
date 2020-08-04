@@ -55,10 +55,6 @@ class QuantitiesContainer extends Component {
         )
     }
 
-    componentWillUnmount(){
-        localStorage.clear();
-     }
-
     getResponse = (mainUnit,fromSubUnit,fromSubUnitValue,toSubUnit) => {
         return apiService.getConvertedValue(mainUnit,fromSubUnit,fromSubUnitValue,toSubUnit)
             .then(response => { 

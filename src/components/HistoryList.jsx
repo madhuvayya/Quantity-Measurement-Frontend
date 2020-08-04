@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React  from 'react'
+import '../styles/history.scss'
 
 function HistoryList(){
 
@@ -35,7 +35,7 @@ function HistoryList(){
     }
  
     return (
-            <React.Fragment>
+            <div className='history-table'>
                 {getValues()}
                 <h2 id='title'>History</h2>
                  <table>
@@ -45,7 +45,7 @@ function HistoryList(){
                     </tbody>
                 </table>
                 <hr/>
-            </React.Fragment>
+            </div>
     )
 }
 

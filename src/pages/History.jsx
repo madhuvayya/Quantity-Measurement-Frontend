@@ -8,12 +8,16 @@ function History() {
   const getRenderComponent = () => {
     if (localStorage.length !== 0)
         return <HistoryList />;
-    return "No data"    
+    return <p className='no-data'>No Data</p>;    
+  } 
+
+  const handleHistory = () => {
+    localStorage.clear();
   } 
 
   return (
     <React.Fragment>
-      <Header navLinkName=''/>
+      <Header navLinkName='Clear History' delete={handleHistory} />
       <Greeting />
       {getRenderComponent()}
     </React.Fragment>
