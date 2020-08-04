@@ -34,7 +34,8 @@ class ApiService {
             const response = await axios.post("http://localhost:8080/quantity-measurement/measurements/" + mainUnit + "/convert", 
                     requestObject);
             console.log("converted value:" + response.data);
-            this.updateHistory(mainUnit,fromUnit,fromUnitValue,toUnit,response.data);
+            if(fromUnitValue !== 1)
+                this.updateHistory(mainUnit,fromUnit,fromUnitValue,toUnit,response.data);
             return response.data;
         }
         catch (err) {

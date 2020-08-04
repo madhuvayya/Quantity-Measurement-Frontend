@@ -74,35 +74,36 @@ body {
         border-radius: 10px;
         border:transparent;
         text-transform: capitalize;
+        outline:none;
         div {
             font-size: large;
         }
     }
 }
 
-#length {
+.length {
     background: transparent url('../assets/scale.svg') 50% 50% no-repeat padding-box;
     background-color:$whiteColor;  
 }
 
-#temperature {
+.temperature {
     background: transparent url('../assets/thermometer.svg') 50% 50% no-repeat padding-box;
     background-color:$whiteColor;  
 }
 
-#volume {
+.volume {
     background: transparent url('../assets/beaker.svg') 50% 50% no-repeat padding-box;
     background-color: $whiteColor;  
 }
 
-#weight {
-    background: transparent url('../assets/weighing-scale.svg') 100% 100% no-repeat padding-box;
+.weight {
+    background: transparent url('../assets/weighing-scale.svg') 50% 50% no-repeat padding-box;
     background-color: $whiteColor;  
 }
 
 #length:hover, .active-length {
-    background: transparent url('../assets/colored-scale.svg') 50% 50% no-repeat padding-box;
-    background-color: #EDFDF9;
+    background: transparent url('../assets/colored-scale.svg') 50% 50% no-repeat padding-box ;
+    background-color: #EDFDF9 ;
     border-color: #0EC098;
     color: #0EC098;
 }
